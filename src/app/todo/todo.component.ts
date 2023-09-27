@@ -23,9 +23,18 @@ export class TodoComponent {
       value: false
     },
   ];
+  finishedList: Todo[]=[
+
+  ]
   constructor(){}
 
-  changeTodo(){
-    
+  addTodo(){
+    this.todoList.push({content:this.todoValue, value:false})
+    this.todoValue = ' ';
+  }
+  changeTodo(i: number){
+    const item = this.todoList.splice(i,1);
+    console.log(item);
+    this.finishedList.push(item[0])
   }
 }
